@@ -30,4 +30,4 @@
 
 ### Maze 3
 
-![image](https://github.com/EkheshRam-05/Search_Visualization/assets/71593839/c06ff2b8-2962-4311-bbb4-1d5874cd3b74)
+![image](https://github.com/EkheshRam-05/Search_Visualization/assets/71593839/f94179a6-7949-47a6-a3d6-ac918596aa13)
