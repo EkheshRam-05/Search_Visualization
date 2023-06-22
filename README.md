@@ -19,7 +19,7 @@
 
 ## The mazes directory contains 7 different mazes
 
-### some examples
+### Some Examples
 ### Maze 1
 
 ![image](https://github.com/EkheshRam-05/Search_Visualization/assets/71593839/0352e93a-52af-44fa-b2ae-af3ce9998f94)
