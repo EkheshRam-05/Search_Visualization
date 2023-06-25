@@ -1,12 +1,16 @@
 from tkinter import *
+from tkinter.ttk import *
+from tkinter import ttk
 from helpers import read_maze, is_legal_pos, MAZE_FILE, Start_Coord
 from search import bfsOWN, dfsOWN, a_starMYOWN
 import time
 
 
 root = Tk()
-option_frame = Frame(root, bg='black')
-maze_frame = Frame(root, width=200, height=200)
+frame_style = Style()
+frame_style.configure('Frame1.TFrame', background='black')
+option_frame = ttk.Frame(root,style='Frame1.TFrame')
+maze_frame = ttk.Frame(root, width=200, height=200)
 I = StringVar()
 J = StringVar()
 walls=[]
@@ -19,20 +23,24 @@ def setGoal():
 	global GOAL_POS
 	GOAL_POS = (int(I.get()), int(J.get()))
 	if is_legal_pos(MAZE, GOAL_POS):
-		Label(maze_frame, width=3, bg='gold', borderwidth=0, highlightthickness=0).grid(row=int(I.get()),column=int(J.get()))
+		ttk.Label(maze_frame, width=3, background='gold', borderwidth=0,).grid(row=int(I.get()),column=int(J.get()))
 
 def color_path(path, color):
 	for i in path:
 		if i != GOAL_POS and i != START_POS:
-			Label(maze_frame,width=3, bg=color, borderwidth=0, highlightthickness=0).grid(row=i[0], column=i[1])
+			ttk.Label(maze_frame,width=3, background=color, borderwidth=0).grid(row=i[0], column=i[1])
 			maze_frame.update()
-			time.sleep(.05)
+			time.sleep(.04)
 
 def getCoords():
-	Label(option_frame, text="Coordinate: ", bg='red', fg='gold', width=20, font=('hack', 12, 'bold')).grid(row=1, column=0)
-	Entry(option_frame, width=20, bg='red', fg='gold', textvariable=I, font=('hack', 12, 'bold')).grid(row=1, column=1)
-	Entry(option_frame, width=20, bg='red', fg='gold', textvariable=J, font=('hack', 12, 'bold')).grid(row=1, column=2)
-	Button(option_frame, width=20, bg='red', fg='gold', text="SUBMIT", command=setGoal, font=('hack', 12, 'bold')).grid(row=1, column=3)
+	entry = Style()
+	entry.configure('TEntry', background='white', foreground='red', font=('hack', 12, 'bold'))
+	ttk.Label(option_frame, text="Coordinate: ", background='white', foreground='red', width=20, font=('hack', 12, 'bold')).grid(row=1, column=0)
+	ttk.Entry(option_frame, width=20, textvariable=I, style='TEntry').grid(row=1, column=1)
+	ttk.Entry(option_frame, width=20, textvariable=J, style='TEntry').grid(row=1, column=2)
+	bs = Style()
+	bs.configure('W.TButton', background='red', foreground='red', font=('hack', 12, 'bold'))
+	ttk.Button(option_frame, width=20, text="SUBMIT", command=setGoal, style='W.TButton').grid(row=1, column=3)
 
 def dfstemp():
 	color_path(dfsOWN(MAZE, START_POS, GOAL_POS), "green")
@@ -49,19 +57,21 @@ def render(maze):
 		MAZE = maze
 		for j in range(len(maze[i])):
 			if maze[i][j] == ' ':
-				Label(maze_frame, width=3, bg='white', borderwidth=0, highlightthickness=0).grid(row=i,column=j)
+				ttk.Label(maze_frame, width=3, background='white', borderwidth=0).grid(row=i,column=j)
 			if maze[i][j] == '*':
 				walls.append([i,j])
-				Label(maze_frame, width=3, bg='red', state="disabled", highlightthickness=0, highlightbackground='black').grid(row=i,column=j)
-	Label(maze_frame,width=3, bg='black', borderwidth=0, highlightthickness=0).grid(row=START_POS[0], column=START_POS[1])
+				ttk.Label(maze_frame, width=3, background='red', state="disabled").grid(row=i,column=j)
+	ttk.Label(maze_frame,width=3, background='black', borderwidth=0).grid(row=START_POS[0], column=START_POS[1])
 	maze_frame.update()
 
 def createGUI(maze):
-	Button(option_frame, text="BFS", bg='red', fg='gold',width=20, command=bfstemp, font=('hack', 12, 'bold')).grid(row=0, column=0)
-	Button(option_frame, text="DFS", bg='red', fg='gold', width=20, command=dfstemp, font=('hack', 12, 'bold')).grid(row=0, column=1)
-	Button(option_frame, text="A*", bg='red', fg='gold', width=20, command=a_startemp, font=('hack', 12, 'bold')).grid(row=0, column=2)
-	Button(option_frame, text="SET GOAL", bg='red', fg='gold', width=20, command=getCoords, font=('hack', 12, 'bold')).grid(row=0, column=3)
-	Button(option_frame, text="RESET", bg='red', fg='gold', width=20, command=lambda: render(maze), font=('hack', 12, 'bold')).grid(row=0, column=4)
+	style = Style()
+	style.configure('W.TButton', font=('hack', 12, 'bold'), foreground='red')
+	ttk.Button(option_frame, text="BFS", style='W.TButton',width=20, command=bfstemp).grid(row=0, column=0)
+	ttk.Button(option_frame, text="DFS", style='W.TButton', width=20, command=dfstemp).grid(row=0, column=1)
+	ttk.Button(option_frame, text="A*", style='W.TButton', width=20, command=a_startemp).grid(row=0, column=2)
+	ttk.Button(option_frame, text="SET GOAL", style='W.TButton', width=20, command=getCoords).grid(row=0, column=3)
+	ttk.Button(option_frame, text="RESET", style='W.TButton', width=20, command=lambda: render(maze)).grid(row=0, column=4)
 
 	render(maze)
 	
