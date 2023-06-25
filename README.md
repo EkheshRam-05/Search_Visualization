@@ -4,17 +4,19 @@
 
 ### BFS Algorithm
 
-![image](https://github.com/EkheshRam-05/Search_Visualization/assets/71593839/3a37a2d9-9acb-464a-9a25-98762c5f007a)
+![image](https://github.com/EkheshRam-05/Search_Visualization/assets/71593839/691a9d40-d0ca-418e-9780-e6048cd630d1)
 
 
 ### DFS Algorithm
 
-![image](https://github.com/EkheshRam-05/Search_Visualization/assets/71593839/11b7101d-47d5-4109-9878-4eb441f6bb9f)
+![image](https://github.com/EkheshRam-05/Search_Visualization/assets/71593839/3fd08e2f-9e76-4538-9520-de8291811095)
+
 
 
 ### A* Algorithm
 
-![image](https://github.com/EkheshRam-05/Search_Visualization/assets/71593839/b2e75c07-6999-425f-ba56-ab236bffd277)
+![image](https://github.com/EkheshRam-05/Search_Visualization/assets/71593839/b8faeedb-57d0-4601-a0f4-ec985e7803a0)
+
 
 
 ## The mazes directory contains 7 different mazes
@@ -22,12 +24,15 @@
 ### Some Examples
 ### Maze 1
 
-![image](https://github.com/EkheshRam-05/Search_Visualization/assets/71593839/0352e93a-52af-44fa-b2ae-af3ce9998f94)
+![image](https://github.com/EkheshRam-05/Search_Visualization/assets/71593839/08af7dd3-f7b6-45ea-a44e-a58c0ab5c04a)
+
 
 ### Maze 2
 
-![image](https://github.com/EkheshRam-05/Search_Visualization/assets/71593839/7bd41a50-d01a-4e1c-91cd-f3f185c87132)
+![image](https://github.com/EkheshRam-05/Search_Visualization/assets/71593839/89956c32-d139-48bf-a07b-ba9145f331dd)
+
 
 ### Maze 3
 
-![image](https://github.com/EkheshRam-05/Search_Visualization/assets/71593839/f94179a6-7949-47a6-a3d6-ac918596aa13)
+![image](https://github.com/EkheshRam-05/Search_Visualization/assets/71593839/da7ccb80-1749-4814-afd5-cac7e9d4af4e)
+
